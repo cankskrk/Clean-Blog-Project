@@ -1,7 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const app = express();
-const port = 5000;
+const port = 3000;
 const Post = require('./models/Post');
 const mongoose = require('mongoose');
 
@@ -30,6 +30,13 @@ app.get('/about', (req, res) => {
 
 app.get('/add_post', (req, res) => {
   res.render('add_post');
+});
+
+app.get('/post/:id', async (req, res) => {
+  const post = await Post.findById(req.params.id);
+  res.render('post', {
+    post,
+  });
 });
 
 app.post('/posts', async (req, res) => {
