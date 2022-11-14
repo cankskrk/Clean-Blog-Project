@@ -28,7 +28,7 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="col-lg-10 col-md-10 mx-auto">
             <p>
               Never in all their history have men been able truly to conceive of
               the world as one: a single sphere, a globe, having the qualities
@@ -38,6 +38,28 @@
               airman's earth, if free men make it, will be truly round: a globe
               in practice, not in theory.
             </p>
+          </div>
+          <div class="col-lg-2 col-md-2 mx-auto">
+            <!-- Share box -->
+            <div class="p-4">
+              <div class="text-center">
+                <a
+                  href="/posts/edit/<%= post._id %>"
+                  class="btn btn-success text-light p-2 mb-4 rounded"
+                >
+                  <span>Update Details</span>
+                </a>
+              </div>
+              <div class="text-center">
+                <a
+                href="/posts/edit"
+                onclick="return confirm('ARE YOU SURE?')"
+                  class="btn btn-danger text-light p-2 rounded"
+                >
+                  <span>Delete Photo</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
