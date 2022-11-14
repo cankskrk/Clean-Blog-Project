@@ -1,7 +1,7 @@
 const Post = require('../models/Post');
 
 exports.getAllPosts = async (req, res) => {
-  const posts = await Post.find({});
+  const posts = await Post.find({}).sort('-dateCreated');
   res.render('index', {
     posts,
   });
@@ -26,4 +26,9 @@ exports.updatePost = async (req, res) => {
   await post.save();
 
   res.redirect(`/posts/${req.params.id}`);
+};
+
+exports.deletePost = async (req, res) => {
+  await Post.findOneAndRemove({ _id: req.params.id });
+  res.redirect('/');
 };
